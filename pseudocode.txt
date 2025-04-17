@@ -1,0 +1,34 @@
+MAIN MENU:
+    - Display options using pyinputplus:
+        1. Enter new text
+        2. Show text statistics
+        3. Show top word frequencies
+        4. Visualise word frequencies
+        5. Exit
+
+FUNCTION: get_user_input()
+    - Ask user for multiline input
+    - Return text string
+
+FUNCTION: clean_text(text)
+    - Convert text to lowercase
+    - Remove punctuation
+    - Return cleaned text
+
+FUNCTION: calculate_statistics(cleaned_text)
+    - Count total words
+    - Count sentences (split by ".", "!", "?")
+    - Calculate average word length
+    - Return stats as dictionary
+
+FUNCTION: get_word_frequencies(cleaned_text, top_n)
+    - Split text into words
+    - Use Counter to count word frequency
+    - Return top N as dictionary
+
+FUNCTION: visualise_frequencies(freq_dict)
+    - Plot bar chart of word frequencies using matplotlib
+
+MAIN FUNCTION:
+    - Call main_menu()
+    - Use while loop to keep the program running until "Exit" is selected

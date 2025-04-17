@@ -1,0 +1,488 @@
+hey chat can you explain the re. sub in function 2 of cleaning text
+
+
+ChatGPT said:
+Hey! Absolutely — let's break down the re.sub() part from your Function 2: clean_text() 👇
+
+🔍 Code Recap
+python
+Copy
+Edit
+import re
+
+def clean_text(text):
+    # Convert to lowercase
+    text = text.lower()
+    # Remove punctuation using regex
+    text = re.sub(r'[^\w\s]', '', text)
+    return text
+🧪 What is re.sub()?
+re.sub() stands for substitute in the re (regular expression) module.
+
+python
+Copy
+Edit
+re.sub(pattern, replacement, string)
+It looks for things that match the pattern and replaces them with the replacement.
+
+🔍 Let's look at this line:
+python
+Copy
+Edit
+text = re.sub(r'[^\w\s]', '', text)
+💡 Breakdown:
+Part	Meaning
+r'[^\w\s]'	A regular expression (regex) pattern
+^	Means "NOT these things"
+\w	Matches any word character (letters, digits, underscore)
+\s	Matches any whitespace (space, tab, newline)
+So, [^\w\s]	Matches anything that’s NOT a letter, number, underscore, or space — i.e., punctuation!
+''	Means: replace with nothing (delete it)
+text	The string you're cleaning
+🔄 In Plain English:
+It removes punctuation like ., !, ?, ,, @, etc.
+It keeps letters, numbers, and spaces.
+
+✅ Example
+python
+Copy
+Edit
+text = "Hello, world! Let's clean this: now."
+cleaned = re.sub(r'[^\w\s]', '', text)
+print(cleaned)
+Output:
+
+kotlin
+Copy
+Edit
+Hello world Lets clean this now
+
+
+hey chat why do i get this error message on the main program when trying to input a text
+
+
+ChatGPT said:
+Hey! Let's get you sorted out. 👇
+
+If you're getting an error when trying to input text in the main program (especially right after selecting "Enter new text"), it's likely one of these common issues:
+
+🔍 1. get_user_input() is not defined
+You might see something like:
+
+pgsql
+Copy
+Edit
+NameError: name 'get_user_input' is not defined
+✅ Fix: Make sure you have this function defined above your main_menu() function or imported properly.
+
+Here’s the correct function for reference:
+
+python
+Copy
+Edit
+def get_user_input():
+    print("\nPlease enter your text below.")
+    print("(Press Enter twice to finish):")
+    lines = []
+    while True:
+        line = input()
+        if line == "":
+            break
+        lines.append(line)
+    return " ".join(lines)
+
+TEXT ANALYSIS TOOL MENU
+Please select one of the following:
+1. Enter new text
+2. Show text statistics
+3. Show top word frequencies
+4. Visualise word frequencies
+5. Exit
+Python is an amazing programming language! It’s used in web development, data science, artificial intelligence, and more. Developers love its simplicity, readability, and huge library support.
+'Python is an amazing programming language! It’s us...' is not a valid choice.
+Please select one of the following:
+1. Enter new text
+2. Show text statistics
+3. Show top word frequencies
+4. Visualise word frequencies
+5. Exit
+
+
+ChatGPT said:
+Ah, got it! That error is super common and really easy to fix! 💡
+
+🧠 Why it's happening:
+You're accidentally pasting the text directly into the menu prompt, instead of choosing an option first.
+
+📋 What PyInputPlus is expecting:
+When it shows:
+
+sql
+Copy
+Edit
+Please select one of the following:
+1. Enter new text
+2. Show text statistics
+...
+It wants you to choose a number (like 1, 2, etc.) to select a menu option.
+
+🧨 What you're doing instead:
+You're pasting a full paragraph like this:
+
+csharp
+Copy
+Edit
+Python is an amazing programming language! It’s used in web development...
+And PyInputPlus says:
+
+pgsql
+Copy
+Edit
+'Python is an amazing programming language!...' is not a valid choice.
+Because it's not one of the menu items (1, 2, etc.).
+
+✅ What to do instead:
+When the menu appears:
+
+sql
+Copy
+Edit
+Please select one of the following:
+1. Enter new text
+2. Show text statistics
+...
+Type 1 and press Enter to choose "Enter new text".
+
+Then it will say:
+
+scss
+Copy
+Edit
+Please enter your text below.
+(Press Enter twice to finish):
+✅ Now you can paste your paragraph like this:
+
+kotlin
+Copy
+Edit
+Python is an amazing programming language! It’s used in web development, data science, artificial intelligence, and more. Developers love its simplicity, readability, and huge library support.
+
+(press Enter again)
+Let me know if you want me to show how the full flow should look step-by-step! You're so close! 💪
+
+
+
+
+
+
+
+You said:
+it still doesnot give an enter text prompt after choosing an option
+
+
+ChatGPT said:
+Ah okay, let’s fix this together step-by-step. If you're choosing option 1 but it doesn’t prompt you to enter text, it likely means the get_user_input() function is not properly defined, not in the same file/cell, or not executed before calling main_menu().
+
+
+after running the main_menu() this was the output or the functioning
+
+
+ChatGPT said:
+Awesome! Drop the output or describe what you saw — I’ll help you from there. Was it the menu working as expected? Did it let you enter your own text and see the stats or graphs?
+
+Let me know what worked, what didn’t, or if there’s an error. I got you!
+
+
+
+
+
+
+
+You said:
+TEXT ANALYSIS TOOL MENU
+Please select one of the following:
+1. Enter new text
+2. Show cleaned text
+3. Show text statistics
+4. Show top word frequencies
+5. Visualise word frequencies
+6. Exit
+1
+
+ TEXT ANALYSIS TOOL MENU
+Please select one of the following:
+1. Enter new text
+2. Show cleaned text
+3. Show text statistics
+4. Show top word frequencies
+5. Visualise word frequencies
+6. Exit
+1
+
+ TEXT ANALYSIS TOOL MENU
+Please select one of the following:
+1. Enter new text
+2. Show cleaned text
+3. Show text statistics
+4. Show top word frequencies
+5. Visualise word frequencies
+6. Exit
+
+Blank values are not allowed.
+Please select one of the following:
+1. Enter new text
+2. Show cleaned text
+3. Show text statistics
+4. Show top word frequencies
+5. Visualise word frequencies
+6. Exit
+
+Blank values are not allowed.
+Please select one of the following:
+1. Enter new text
+2. Show cleaned text
+3. Show text statistics
+4. Show top word frequencies
+5. Visualise word frequencies
+6. Exit
+
+Blank values are not allowed.
+Please select one of the following:
+1. Enter new text
+2. Show cleaned text
+3. Show text statistics
+4. Show top word frequencies
+5. Visualise word frequencies
+6. Exit
+2
+
+ TEXT ANALYSIS TOOL MENU
+Please select one of the following:
+1. Enter new text
+2. Show cleaned text
+3. Show text statistics
+4. Show top word frequencies
+5. Visualise word frequencies
+6. Exit
+1
+
+ TEXT ANALYSIS TOOL MENU
+Please select one of the following:
+1. Enter new text
+2. Show cleaned text
+3. Show text statistics
+4. Show top word frequencies
+5. Visualise word frequencies
+6. Exit
+
+
+ChatGPT said:
+Thanks for sharing the output! The issue is clear now — when you choose "1. Enter new text", it doesn't prompt you to actually enter any text. It just jumps back to the menu, and when you try again, it loops, eventually giving the "Blank values are not allowed" error from pyinputplus.
+
+🔍 Likely Cause:
+Your main_menu() function calls get_user_input() — but that function might not be defined in the notebook or isn’t working as expected. If it's missing, Python skips it silently when running in Colab or Jupyter.
+
+✅ Fix Steps:
+Here’s what you should do:
+
+1. Make sure this function is defined before running main_menu():
+python
+Copy
+Edit
+def get_user_input():
+    print("\nPlease enter your text below.")
+    print("(Press Enter twice to finish):")
+    lines = []
+    while True:
+        line = input()
+        if line == "":
+            break
+        lines.append(line)
+    return " ".join(lines)
+👉 Paste this at the top of your notebook, before main_menu() is defined or run.
+
+2. Run everything again in order:
+Define all your functions:
+
+get_user_input()
+
+clean_text()
+
+calculate_statistics()
+
+get_word_frequencies()
+
+visualise_frequencies()
+
+main_menu()
+
+Then finally call:
+
+python
+Copy
+Edit
+main_menu()
+🔁 How It Should Work After Fixing:
+You choose:
+
+arduino
+Copy
+Edit
+1. Enter new text
+Then it should ask:
+
+scss
+Copy
+Edit
+Please enter your text below.
+(Press Enter twice to finish):
+Then you type something like:
+
+csharp
+Copy
+Edit
+Python is powerful and simple.
+It is widely used in AI and data science.
+
+[press Enter again]
+And now it should analyze and return to the menu ✅
+
+Let me know if you want me to check your full updated code or help you clean it all up in one go!
+
+
+
+
+
+
+
+You said:
+using colab
+
+
+ChatGPT said:
+Perfect — since you're using Google Colab, the good news is: everything works fine as long as your code is in the right order and you run it cell-by-cell from top to bottom.
+
+Here’s exactly how to structure it in Colab to fix the issue you're seeing 👇
+
+✅ Step-by-step Setup for Colab
+🔹 1. First cell — Install pyinputplus (if not already installed)
+python
+Copy
+Edit
+!pip install pyinputplus
+🔹 2. Second cell — Define all functions
+python
+Copy
+Edit
+import re
+import pyinputplus as pyip
+from collections import Counter
+import matplotlib.pyplot as plt
+
+def get_user_input():
+    print("\nPlease enter your text below.")
+    print("(Press Enter twice to finish):")
+    lines = []
+    while True:
+        line = input()
+        if line == "":
+            break
+        lines.append(line)
+    return " ".join(lines)
+
+def clean_text(text):
+    text = text.lower()
+    return re.sub(r'[^\w\s]', '', text)
+
+def calculate_statistics(cleaned_text):
+    words = cleaned_text.split()
+    word_count = len(words)
+    sentence_count = len(re.findall(r'[.!?]', cleaned_text))
+    avg_word_len = sum(len(word) for word in words) / word_count if word_count else 0
+    return {
+        'word_count': word_count,
+        'sentence_count': sentence_count,
+        'average_word_length': round(avg_word_len, 2)
+    }
+
+def get_word_frequencies(cleaned_text, top_n=10):
+    words = cleaned_text.split()
+    word_counts = Counter(words)
+    return dict(word_counts.most_common(top_n))
+
+def visualise_frequencies(freq_dict):
+    if not freq_dict:
+        print("No data to display.")
+        return
+    words = list(freq_dict.keys())
+    counts = list(freq_dict.values())
+    plt.figure(figsize=(10, 6))
+    plt.bar(words, counts, color='skyblue')
+    plt.xlabel('Words')
+    plt.ylabel('Frequency')
+    plt.title('Top Word Frequencies')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+🔹 3. Third cell — Your main program
+python
+Copy
+Edit
+def main_menu():
+    user_text = ""
+    cleaned = ""
+    stats = {}
+    freq_dict = {}
+
+    while True:
+        print("\n📊 TEXT ANALYSIS TOOL MENU")
+        choice = pyip.inputMenu([
+            'Enter new text',
+            'Show cleaned text',
+            'Show text statistics',
+            'Show top word frequencies',
+            'Visualise word frequencies',
+            'Exit'
+        ], numbered=True)
+
+        if choice == 'Enter new text':
+            user_text = get_user_input()
+            cleaned = clean_text(user_text)
+            stats = calculate_statistics(cleaned)
+            freq_dict = get_word_frequencies(cleaned, top_n=10)
+            print("✅ Text saved and analysed!")
+
+        elif choice == 'Show cleaned text':
+            if cleaned:
+                print("\n🧼 Cleaned Text:")
+                print(cleaned)
+            else:
+                print("⚠️ No cleaned text available. Please enter text first.")
+
+        elif choice == 'Show text statistics':
+            if not stats:
+                print("⚠️ No stats available. Please enter text first.")
+            else:
+                print("\n📋 Text Statistics:")
+                for key, value in stats.items():
+                    print(f"{key.replace('_', ' ').capitalize()}: {value}")
+
+        elif choice == 'Show top word frequencies':
+            if not freq_dict:
+                print("⚠️ No frequency data available. Please enter text first.")
+            else:
+                print("\n🔢 Top Word Frequencies:")
+                for word, count in freq_dict.items():
+                    print(f"{word}: {count}")
+
+        elif choice == 'Visualise word frequencies':
+            visualise_frequencies(freq_dict)
+
+        elif choice == 'Exit':
+            print("👋 Exiting program. Goodbye!")
+            break
+🔹 4. Fourth cell — Run the program
+python
+Copy
+Edit
+main_menu()
